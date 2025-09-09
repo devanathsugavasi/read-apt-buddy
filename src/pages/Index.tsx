@@ -1,15 +1,16 @@
 import { useState } from "react";
 import LandingPage from "@/components/LandingPage";
-import AssessmentForm from "@/components/AssessmentForm";
-import AssessmentResults from "@/components/AssessmentResults";
-import TextAdaptation from "@/components/TextAdaptation";
+import EnhancedAssessmentForm from "@/components/EnhancedAssessmentForm";
+import EnhancedAssessmentResults from "@/components/EnhancedAssessmentResults";
+import AdvancedTextAdaptation from "@/components/AdvancedTextAdaptation";
 
 type AppSection = 'landing' | 'assessment' | 'results' | 'textInput' | 'demo';
 
 interface AssessmentData {
-  difficulty: string;
-  preferences: Record<string, string>;
-  confidence: number;
+  dyslexia: { severity: string; confidence: number };
+  adhd: { type: string; confidence: number };
+  vision: { level: string; glasses_power?: number };
+  recommendations: string[];
 }
 
 const Index = () => {
@@ -37,7 +38,7 @@ const Index = () => {
   switch (currentSection) {
     case 'assessment':
       return (
-        <AssessmentForm
+        <EnhancedAssessmentForm
           onComplete={handleAssessmentComplete}
           onBack={() => setCurrentSection('landing')}
         />
@@ -45,7 +46,7 @@ const Index = () => {
     
     case 'results':
       return assessmentResults ? (
-        <AssessmentResults
+        <EnhancedAssessmentResults
           results={assessmentResults}
           onContinue={handleContinueFromResults}
           onRetake={handleRetakeAssessment}
@@ -55,9 +56,9 @@ const Index = () => {
     case 'textInput':
     case 'demo':
       return (
-        <TextAdaptation
+        <AdvancedTextAdaptation
           onBack={() => setCurrentSection('landing')}
-          initialPreferences={assessmentResults?.preferences}
+          userProfile={assessmentResults}
         />
       );
     
