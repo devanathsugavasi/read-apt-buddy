@@ -1,42 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ReadApt Design System - Accessibility-First Design
+All colors MUST be HSL. Designed for dyslexia, ADHD, and vision accessibility.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm, comfortable background - not pure white */
+    --background: 45 23% 97%;
+    --foreground: 220 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card backgrounds with subtle warmth */
+    --card: 45 30% 98%;
+    --card-foreground: 220 18% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 30% 98%;
+    --popover-foreground: 220 18% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Calming blue primary - accessible and comfortable */
+    --primary: 210 70% 45%;
+    --primary-foreground: 45 30% 98%;
+    --primary-glow: 210 60% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft secondary tones */
+    --secondary: 45 20% 92%;
+    --secondary-foreground: 220 20% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted but readable */
+    --muted: 45 15% 90%;
+    --muted-foreground: 220 12% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gentle accent colors */
+    --accent: 150 30% 85%;
+    --accent-foreground: 220 20% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Warm success and error states */
+    --success: 120 40% 50%;
+    --success-foreground: 45 30% 98%;
+    
+    --warning: 40 85% 60%;
+    --warning-foreground: 45 30% 98%;
+    
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 30% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Soft borders and inputs */
+    --border: 45 15% 85%;
+    --input: 45 20% 92%;
+    --ring: 210 70% 45%;
 
-    --radius: 0.5rem;
+    /* Comfortable radius */
+    --radius: 0.75rem;
+
+    /* Reading-specific variables */
+    --reading-bg: 45 35% 95%;
+    --reading-text: 220 25% 20%;
+    --highlight: 50 100% 85%;
+    --focus-outline: 210 70% 45%;
+
+    /* Gradients for visual appeal */
+    --gradient-primary: linear-gradient(135deg, hsl(210 70% 45%), hsl(210 60% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(45 20% 92%), hsl(45 25% 88%));
+    --gradient-accent: linear-gradient(135deg, hsl(150 30% 85%), hsl(180 25% 80%));
+
+    /* Animations and transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Spacing for accessibility */
+    --reading-line-height: 1.6;
+    --reading-letter-spacing: 0.05em;
+    --reading-word-spacing: 0.1em;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +138,43 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-reading;
+    line-height: var(--reading-line-height);
+    letter-spacing: var(--reading-letter-spacing);
+  }
+
+  /* Reading accessibility utilities */
+  .reading-text {
+    font-family: 'Atkinson Hyperlegible', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: var(--reading-line-height);
+    letter-spacing: var(--reading-letter-spacing);
+    word-spacing: var(--reading-word-spacing);
+  }
+
+  .focus-visible {
+    outline: 3px solid hsl(var(--focus-outline));
+    outline-offset: 2px;
+  }
+
+  /* Smooth transitions for better UX */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Gradient utilities */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
   }
 }
