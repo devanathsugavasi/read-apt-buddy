@@ -1,8 +1,8 @@
 import { useState } from "react";
-import LandingPage from "@/components/LandingPage";
-import AssessmentForm from "@/components/AssessmentForm";
-import AssessmentResults from "@/components/AssessmentResults";
-import TextAdaptation from "@/components/TextAdaptation";
+import LandingPage from "@/components/readapt/LandingPage";
+import AssessmentForm from "@/components/readapt/AssessmentForm";
+import AssessmentResults from "@/components/readapt/AssessmentResults";
+import TextAdaptation from "@/components/readapt/TextAdaptation";
 
 type AppSection = 'landing' | 'assessment' | 'results' | 'textInput' | 'demo';
 

@@ -1,8 +1,44 @@
-# Welcome to your Lovable project
+# ReadApt - Accessible Reading Platform
 
-## Project info
+A React-based web application designed to make reading accessible for individuals with dyslexia, ADHD, and vision difficulties through personalized text adaptations.
 
-**URL**: https://lovable.dev/projects/42587672-7f76-4f3a-9d59-ae9886e1b122
+**Project URL**: https://lovable.dev/projects/42587672-7f76-4f3a-9d59-ae9886e1b122
+
+## 🎯 Features
+
+- **Smart Assessment**: 5-question evaluation to identify reading challenges
+- **Text Adaptation**: AI-powered formatting with customizable spacing, fonts, and highlighting  
+- **Text-to-Speech**: Natural voice synthesis for auditory learning support
+- **Accessibility-First Design**: Built specifically for reading difficulties
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/
+│   ├── readapt/           # Core ReadApt components
+│   │   ├── LandingPage.tsx
+│   │   ├── AssessmentForm.tsx
+│   │   ├── AssessmentResults.tsx
+│   │   └── TextAdaptation.tsx
+│   └── ui/                # Essential UI components (12 files)
+├── pages/
+│   ├── Index.tsx          # Main app routing
+│   └── NotFound.tsx       # 404 page
+├── hooks/use-toast.ts     # Toast notifications
+├── lib/utils.ts           # Utility functions
+├── App.tsx                # Root component
+├── main.tsx               # React entry point
+└── index.css              # Global styles & design system
+```
+
+## 🧹 Optimization
+
+This project has been optimized to include only essential files:
+- **Removed 36+ unused UI components** 
+- **Clean folder structure** with organized component hierarchy
+- **Minimal dependencies** - Only what's actually used
+- **Accessibility-first** - Every design decision prioritizes readability
 
 ## How can I edit this code?
 
